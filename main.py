@@ -41,6 +41,7 @@ def main_loop():
             print("\n⚠ Duplicate Class Definitions:")
             for dup in extract_classes.duplicates:
                 print(f"  [Warning] Duplicate class detected: '{dup}'")
+            print("\n")
 
         tree = build_inheritance_tree(classes)
 
@@ -53,11 +54,13 @@ def main_loop():
                 print("  " + w)
         else:
             print("\n✅ No structural issues found.")
+        print("\n")
 
         output_mode = questionary.select(
             "Choose output mode:",
             choices=["Text (console)", "Graphviz (PDF)"]
         ).ask()
+        print("\n")
 
         if output_mode == "Graphviz (PDF)":
             display_tree_graphviz(tree)
@@ -65,6 +68,7 @@ def main_loop():
             note_mode = questionary.confirm("Show 'inherits from' notes for multi-inheritance?").ask()
             display_tree(tree, show_inheritance_note=note_mode)
 
+        print("\n")
         again = questionary.confirm("Analyze another file?").ask()
         if not again:
             print("Goodbye!")

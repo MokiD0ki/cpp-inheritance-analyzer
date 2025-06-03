@@ -115,3 +115,18 @@ def test_tc14_duplicate_classes():
     run_test_case("tc14_duplicate_classes.cpp", expected_warnings=[
         "Duplicate class detected"
     ])
+
+def test_tc15_code_from_github():
+    run_test_case("tc15_code_from_github.cpp", {
+    "BufferDecoder": [
+        "AbstractYuyvBufferDecoder",
+        "CopyBufferDecoder",
+        "JpegBufferDecoder"
+    ],
+    "AbstractYuyvBufferDecoder": [
+        "SeparateYuyvBufferDecoder",
+        "YuyvToGrayscaleBufferDecoder",
+        "YuyvToRgbBufferDecoder"
+    ]
+    })
+    

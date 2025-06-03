@@ -1,1 +1,5 @@
-class A {}; int x = 5; class B : public A {}; void foo() {}
+class A {};
+class B {};
+class C : public A {};
+class D : public B {};
+class E {};
